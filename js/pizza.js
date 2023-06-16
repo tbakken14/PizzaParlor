@@ -19,27 +19,51 @@ class Pizza {
             this.vegToppings.push(topping.name);
         }
     }
+
+    removeTopping(topping) {
+        if (topping.isMeat) {
+            this.removeToppingFromToppings(topping, this.meatToppings);
+        }
+        else {
+            this.removeToppingFromToppings(topping, this.vegToppings);
+        }
+    }
+
+    removeToppingFromToppings(topping, toppings) {
+        const index = toppings.indexOf(topping.name);
+        if (index != -1) {
+            toppings.splice(index, 1);
+        }
+    }
 }
 
 function testTopping() {
     let topping = new Topping("test", false);
-    console.log(Object.hasOwn(topping, "name"));
-    console.log(Object.hasOwn(topping, "isMeat"));
-    console.log(topping.name === "test");
-    console.log(topping.isMeat === false);
+    console.log("constructor", Object.hasOwn(topping, "name"));
+    console.log("constructor", Object.hasOwn(topping, "isMeat"));
+    console.log("constructor", topping.name === "test");
+    console.log("constructor", topping.isMeat === false);
 }
 
 function testPizza() {
     let pizza = new Pizza();
-    console.log(Object.hasOwn(pizza, "meatToppings"));
-    console.log(Object.hasOwn(pizza, "vegToppings"));
-    console.log(pizza.vegToppings.length === 0);
-    console.log(pizza.meatToppings.length === 0);
+    console.log("constructor", Object.hasOwn(pizza, "meatToppings"));
+    console.log("constructor", Object.hasOwn(pizza, "vegToppings"));
+    console.log("constructor", pizza.vegToppings.length === 0);
+    console.log("constructor", pizza.meatToppings.length === 0);
     pizza.addTopping(new Topping("meat1", true));
-    console.log(pizza.meatToppings.length === 1);
-    console.log(pizza.vegToppings.length === 0);
+    console.log("add", pizza.meatToppings.length === 1);
+    console.log("add", pizza.vegToppings.length === 0);
     pizza.addTopping(new Topping("veg1", false));
-    console.log(pizza.meatToppings.length === 1);
-    console.log(pizza.vegToppings.length === 1);
+    console.log("add", pizza.meatToppings.length === 1);
+    console.log("add", pizza.vegToppings.length === 1);
+    pizza.removeTopping(new Topping("meat2", true));
+    console.log("remove", pizza.meatToppings.length === 1);
+    pizza.removeTopping(new Topping("meat1", true));
+    console.log("remove", pizza.meatToppings.length === 0);
+    pizza.removeTopping(new Topping("veg1", true));
+    console.log("remove", pizza.vegToppings.length === 1);
+    pizza.removeTopping(new Topping("veg1", false));
+    console.log("remove", pizza.vegToppings.length === 0);
 }
 

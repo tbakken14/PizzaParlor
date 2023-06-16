@@ -119,3 +119,36 @@ _let pizza = new Pizza();_
 _pizza.addTopping(new Topping("veg1", false));_
 _pizza.meatToppings.length === 0;_
 Result: true
+
+Test: Pizza removeTopping method does not remove topping that has not been added
+Code: 
+_let pizza = new Pizza();_
+_pizza.addTopping(new Topping("meat1", true));_
+_pizza.removeTopping(new Topping("meat2", true));_
+_pizza.meatToppings.length === 1;_
+Result: true
+
+Test: Pizza removeTopping method removes meat topping from meat array 
+Code: 
+_let pizza = new Pizza();_
+_pizza.addTopping(new Topping("meat1", true));_
+_pizza.removeTopping(new Topping("meat1", true));_
+_pizza.meatToppings.length === 0;_
+Result: true
+
+Test: Pizza removeTopping method does not remove meat topping from veg array 
+Code: 
+_let pizza = new Pizza();_
+_pizza.addTopping(new Topping("veg1", false));_
+_pizza.removeTopping(new Topping("veg1", true));_
+_pizza.vegToppings.length === 1;_
+Result: true
+
+Test: Pizza removeTopping method removes veg topping from veg array 
+Code: 
+_let pizza = new Pizza();_
+_pizza.addTopping(new Topping("veg1", false));_
+_pizza.removeTopping(new Topping("veg1", false));_
+_pizza.vegToppings.length === 0;_
+Result: true
+
