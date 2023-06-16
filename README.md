@@ -40,8 +40,27 @@ Copyright (c) _date_ _author name(s)_
 ## Tests
 
 # Describe: Pizza Object
+# Code: let topping = new Topping("test", false);
 
-Code: let pizza = new Pizza();
+Test: Topping object has property name
+Code: Object.hasOwn(topping, "name")
+Result: true
+
+Test: Topping object has property isMeat
+Code: Object.hasOwn(topping, "isMeat")
+Result: true
+
+Test: Topping constructor sets first parameter to name property
+Code: topping.name === "test"
+Result: true
+
+Test: Topping constructor sets second parameter to isMeat property
+Code: topping.isMeat === false
+Result: true
+
+
+# Describe: Pizza Object
+# Code: let pizza = new Pizza();
 
 Test: Pizza object has property meatToppings
 Code: Object.hasOwn(pizza, "meatToppings")
