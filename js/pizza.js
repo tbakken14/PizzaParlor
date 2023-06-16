@@ -19,6 +19,15 @@ class Topping {
     }
 }
 
+class Sauce {
+    static red = new Sauce("Red");
+    static white = new Sauce("White");
+
+    constructor(color) {
+        this.color = color;
+    }
+}
+
 class Size {
     static small = new Size(12);
     static medium = new Size(16);
@@ -64,6 +73,11 @@ class Pizza {
             toppings.splice(index, 1);
         }
     }
+}
+
+function testSauce() {
+    console.log("static member", Sauce.red.color === "Red");
+    console.log("static member", Sauce.white.color === "White");
 }
 
 function testSize() {

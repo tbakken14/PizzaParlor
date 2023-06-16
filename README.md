@@ -80,6 +80,18 @@ Test: Large size has a diameter of 12 inches
 Code: Size.large.diameter === 20;
 Result: true
 
+
+# Describe: Sauce
+
+Test: Sauce static member white has color property White
+Code: Sauce.white.color === "White";
+Result: true
+
+Test: Sauce static member red has color property Red
+Code: Sauce.red.color === "Red";
+Result: true
+
+
 # Describe: Pizza()
 
 Test: Pizza object has property size
