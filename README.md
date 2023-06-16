@@ -40,22 +40,29 @@ Copyright (c) _date_ _author name(s)_
 ## Tests
 
 # Describe: Pizza Object
-# Code: let topping = new Topping("test", false);
 
 Test: Topping object has property name
-Code: Object.hasOwn(topping, "name")
+Code: 
+_let topping = new Topping("test", false);_
+_Object.hasOwn(topping, "name");_
 Result: true
 
 Test: Topping object has property isMeat
-Code: Object.hasOwn(topping, "isMeat")
+Code: 
+_let topping = new Topping("test", false);_
+_Object.hasOwn(topping, "isMeat");_
 Result: true
 
 Test: Topping constructor sets first parameter to name property
-Code: topping.name === "test"
+Code: 
+_let topping = new Topping("test", false);_
+_topping.name === "test";_
 Result: true
 
 Test: Topping constructor sets second parameter to isMeat property
-Code: topping.isMeat === false
+Code: 
+_let topping = new Topping("test", false);_
+_topping.isMeat === false;_
 Result: true
 
 
