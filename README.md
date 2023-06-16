@@ -60,12 +60,55 @@ Result: true
 
 
 # Describe: Pizza Object
-# Code: let pizza = new Pizza();
 
 Test: Pizza object has property meatToppings
-Code: Object.hasOwn(pizza, "meatToppings")
+Code: 
+_let pizza = new Pizza();_
+_Object.hasOwn(pizza, "meatToppings");_
 Result: true
 
 Test: Pizza object has property vegToppings
-Code: Object.hasOwn(pizza, "vegToppings")
+Code: 
+_let pizza = new Pizza();_
+_Object.hasOwn(pizza, "vegToppings");_
+Result: true
+
+Test: Pizza vegToppings has initial length 0
+Code: 
+_let pizza = new Pizza();_
+_pizza.vegToppings.length === 0;_
+Result: true
+
+Test: Pizza meatToppings has initial length 0
+Code: 
+_let pizza = new Pizza();_
+_pizza.meatToppings.length === 0;_
+Result: true
+
+Test: Pizza addTopping method adds to meat if topping is meat
+Code: 
+_let pizza = new Pizza();_
+_pizza.addTopping(new Topping("meat1", true));_
+_pizza.meatToppings.length === 1;_
+Result: true
+
+Test: Pizza addTopping method does not add to veg if topping is meat
+Code: 
+_let pizza = new Pizza();_
+_pizza.addTopping(new Topping("meat1", true));_
+_pizza.vegToppings.length === 0;_
+Result: true
+
+Test: Pizza addTopping method adds to veg if topping is not meat
+Code: 
+_let pizza = new Pizza();_
+_pizza.addTopping(new Topping("veg1", false));_
+_pizza.vegToppings.length === 1;_
+Result: true
+
+Test: Pizza addTopping method does not add to meat if topping is not meat
+Code: 
+_let pizza = new Pizza();_
+_pizza.addTopping(new Topping("veg1", false));_
+_pizza.meatToppings.length === 0;_
 Result: true
