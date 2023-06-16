@@ -39,7 +39,7 @@ Copyright (c) _date_ _author name(s)_
 
 ## Tests
 
-# Describe: Pizza Object
+# Describe: Topping()
 
 Test: Topping object has property name
 Code: 
@@ -66,7 +66,7 @@ _topping.isMeat === false;_
 Result: true
 
 
-# Describe: Pizza Object
+# Describe: Pizza()
 
 Test: Pizza object has property meatToppings
 Code: 
@@ -91,6 +91,9 @@ Code:
 _let pizza = new Pizza();_
 _pizza.meatToppings.length === 0;_
 Result: true
+
+
+# Describe: Pizza.addTopping()
 
 Test: Pizza addTopping method adds to meat if topping is meat
 Code: 
@@ -119,6 +122,9 @@ _let pizza = new Pizza();_
 _pizza.addTopping(new Topping("veg1", false));_
 _pizza.meatToppings.length === 0;_
 Result: true
+
+
+# Describe: Pizza.removeTopping()
 
 Test: Pizza removeTopping method does not remove topping that has not been added
 Code: 
