@@ -35,3 +35,18 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 _{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
 
 Copyright (c) _date_ _author name(s)_
+
+
+## Tests
+
+# Describe: Pizza Object
+
+Code: let pizza = new Pizza();
+
+Test: Pizza object has property meatToppings
+Code: Object.hasOwn(pizza, "meatToppings")
+Result: true
+
+Test: Pizza object has property vegToppings
+Code: Object.hasOwn(pizza, "vegToppings")
+Result: true
