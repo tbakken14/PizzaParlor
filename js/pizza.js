@@ -1,4 +1,18 @@
 class Topping {
+    static pepperoni = new Topping("Pepperoni", true);
+    static sausage = new Topping("Sausage", true);
+    static bacon = new Topping("Bacon", true);
+    static chicken = new Topping("Chicken", true);
+    static onion = new Topping("Onion", false);
+    static olive = new Topping("Olive", false);
+    static jalapeno = new Topping("Jalapeno", false);
+    static bananaPepper = new Topping("Banana Pepper", false);
+    static tomato = new Topping("Tomato", false);
+    static basil = new Topping("Basil", false);
+    static mushroom = new Topping("Mushroom", false);
+    static mozzarella = new Topping("Mozzarella", false);
+    static blueCheese = new Topping("Blue Cheese", false);
+
     constructor(name, isMeat) {
         this.name = name;
         this.isMeat = isMeat;
@@ -6,13 +20,13 @@ class Topping {
 }
 
 class Size {
-    constructor(diameter) {
-        this.diameter = diameter;
-    }
-
     static small = new Size(12);
     static medium = new Size(16);
     static large = new Size(20);
+
+    constructor(diameter) {
+        this.diameter = diameter;
+    }
 }
 
 class Pizza {
