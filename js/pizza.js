@@ -39,10 +39,15 @@ class Size {
 }
 
 class Pizza {
-    constructor(size) {
+    constructor(size, sauce) {
         this.size = size;
+        this.sauce = sauce;
         this.meatToppings = [];
         this.vegToppings = [];
+    }
+
+    setSauce(sauce) {
+        this.sauce = sauce;
     }
 
     setSize(size) {
@@ -95,11 +100,13 @@ function testTopping() {
 }
 
 function testPizza() {
-    let pizza = new Pizza(Size.small.diameter);
+    let pizza = new Pizza(Size.small.diameter, Sauce.red.color);
+    console.log("constructor", Object.hasOwn(pizza, "sauce"));
     console.log("constructor", Object.hasOwn(pizza, "size"));
     console.log("constructor", Object.hasOwn(pizza, "meatToppings"));
     console.log("constructor", Object.hasOwn(pizza, "vegToppings"));
     console.log("constructor", pizza.size === Size.small.diameter);
+    console.log("constructor", pizza.sauce === Sauce.red.color);
     console.log("constructor", pizza.vegToppings.length === 0);
     console.log("constructor", pizza.meatToppings.length === 0);
     pizza.addTopping(new Topping("meat1", true));
@@ -118,5 +125,7 @@ function testPizza() {
     console.log("remove", pizza.vegToppings.length === 0);
     pizza.setSize(Size.medium.diameter);
     console.log("setSize", pizza.size === Size.medium.diameter);
+    pizza.setSauce(Sauce.white.color);
+    console.log("setSauce", pizza.sauce === Sauce.white.color);
 }
 
