@@ -16,7 +16,8 @@ class Size {
 }
 
 class Pizza {
-    constructor() {
+    constructor(size) {
+        this.size = size;
         this.meatToppings = [];
         this.vegToppings = [];
     }
@@ -52,6 +53,7 @@ function testSize() {
     console.log("static member", Size.medium.diameter === 16);
     console.log("static member", Size.large.diameter === 20);
 }
+
 function testTopping() {
     let topping = new Topping("test", false);
     console.log("constructor", Object.hasOwn(topping, "name"));
@@ -61,9 +63,11 @@ function testTopping() {
 }
 
 function testPizza() {
-    let pizza = new Pizza();
+    let pizza = new Pizza(10);
+    console.log("constructor", Object.hasOwn(pizza, "size"));
     console.log("constructor", Object.hasOwn(pizza, "meatToppings"));
     console.log("constructor", Object.hasOwn(pizza, "vegToppings"));
+    console.log("constructor", pizza.size === 0);
     console.log("constructor", pizza.vegToppings.length === 0);
     console.log("constructor", pizza.meatToppings.length === 0);
     pizza.addTopping(new Topping("meat1", true));
