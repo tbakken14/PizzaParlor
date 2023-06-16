@@ -66,6 +66,20 @@ _topping.isMeat === false;_
 Result: true
 
 
+# Describe: Size
+
+Test: Small size has a diameter of 12 inches
+Code: Size.small.diameter === 12;
+Result: true
+
+Test: Medium size has a diameter of 12 inches
+Code: Size.medium.diameter === 16;
+Result: true
+
+Test: Large size has a diameter of 12 inches
+Code: Size.large.diameter === 20;
+Result: true
+
 # Describe: Pizza()
 
 Test: Pizza object has property meatToppings

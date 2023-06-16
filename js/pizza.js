@@ -5,6 +5,16 @@ class Topping {
     }
 }
 
+class Size {
+    constructor(diameter) {
+        this.diameter = diameter;
+    }
+
+    static small = new Size(12);
+    static medium = new Size(16);
+    static large = new Size(20);
+}
+
 class Pizza {
     constructor() {
         this.meatToppings = [];
@@ -37,6 +47,11 @@ class Pizza {
     }
 }
 
+function testSize() {
+    console.log("static member", Size.small.diameter === 12);
+    console.log("static member", Size.medium.diameter === 16);
+    console.log("static member", Size.large.diameter === 20);
+}
 function testTopping() {
     let topping = new Topping("test", false);
     console.log("constructor", Object.hasOwn(topping, "name"));
