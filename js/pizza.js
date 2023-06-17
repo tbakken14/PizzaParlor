@@ -29,11 +29,12 @@ class Sauce {
 }
 
 class Size {
-    static small = new Size(12);
-    static medium = new Size(16);
-    static large = new Size(20);
+    static small = new Size("Small", 12);
+    static medium = new Size("Medium", 16);
+    static large = new Size("Large", 20);
 
-    constructor(diameter) {
+    constructor(name, diameter) {
+        this.name = name;
         this.diameter = diameter;
     }
 }
@@ -78,6 +79,30 @@ class Pizza {
             toppings.splice(index, 1);
         }
     }
+
+    getPrice() {
+        let price = 14.99;
+        //Price based on size
+        switch (this.size) {
+            case Size.large:
+                price += 7
+            case Size.medium:
+                price += 7
+            case Size.small:
+                break;
+            default:
+                price = Number.NaN;
+        }
+        //1 free meat toppping, $2 per extra
+        if (this.meatToppings.length > 1) {
+            price += 2 * this.meatToppings.length - 1;
+        }
+        //2 free veg toppping, $1 per extra
+        if (this.vegToppings.length > 2) {
+            price += 1 * this.meatToppings.length - 2;
+        }
+        return price.toFixed(2);
+    }
 }
 
 function testSauce() {
@@ -100,13 +125,13 @@ function testTopping() {
 }
 
 function testPizza() {
-    let pizza = new Pizza(Size.small.diameter, Sauce.red.color);
+    let pizza = new Pizza(Size.small, Sauce.red);
     console.log("constructor", Object.hasOwn(pizza, "sauce"));
     console.log("constructor", Object.hasOwn(pizza, "size"));
     console.log("constructor", Object.hasOwn(pizza, "meatToppings"));
     console.log("constructor", Object.hasOwn(pizza, "vegToppings"));
-    console.log("constructor", pizza.size === Size.small.diameter);
-    console.log("constructor", pizza.sauce === Sauce.red.color);
+    console.log("constructor", pizza.size === Size.small);
+    console.log("constructor", pizza.sauce === Sauce.red);
     console.log("constructor", pizza.vegToppings.length === 0);
     console.log("constructor", pizza.meatToppings.length === 0);
     pizza.addTopping(new Topping("meat1", true));
@@ -123,9 +148,10 @@ function testPizza() {
     console.log("remove", pizza.vegToppings.length === 1);
     pizza.removeTopping(new Topping("veg1", false));
     console.log("remove", pizza.vegToppings.length === 0);
-    pizza.setSize(Size.medium.diameter);
-    console.log("setSize", pizza.size === Size.medium.diameter);
-    pizza.setSauce(Sauce.white.color);
-    console.log("setSauce", pizza.sauce === Sauce.white.color);
+    pizza.setSize(Size.medium);
+    console.log("setSize", pizza.size === Size.medium);
+    pizza.setSauce(Sauce.white);
+    console.log("setSauce", pizza.sauce === Sauce.white);
+    console.log("getPrice", pizza.getPrice() === "21.99");
 }
 

@@ -96,37 +96,49 @@ Result: true
 
 Test: Pizza object has property size
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _Object.hasOwn(pizza, "size");_
+Result: true
+
+Test: Pizza object has property sauce
+Code: 
+_let pizza = new Pizza(Size.small, Sauce.red);_
+_Object.hasOwn(pizza, "sauce");_
 Result: true
 
 Test: Pizza object has property meatToppings
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _Object.hasOwn(pizza, "meatToppings");_
 Result: true
 
 Test: Pizza object has property vegToppings
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _Object.hasOwn(pizza, "vegToppings");_
 Result: true
 
 Test: Pizza size has value equal to first argument
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
-_pizza.size === 10;_
+_let pizza = new Pizza(Size.small, Sauce.red);_
+_pizza.size === Size.small;_
+Result: true
+
+Test: Pizza sauce has value equal to second argument
+Code: 
+_let pizza = new Pizza(Size.small, Sauce.red);_
+_pizza.sauce === Sauce.red;_
 Result: true
 
 Test: Pizza vegToppings has initial length 0
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _pizza.vegToppings.length === 0;_
 Result: true
 
 Test: Pizza meatToppings has initial length 0
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _pizza.meatToppings.length === 0;_
 Result: true
 
@@ -135,28 +147,28 @@ Result: true
 
 Test: Pizza addTopping method adds to meat if topping is meat
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _pizza.addTopping(new Topping("meat1", true));_
 _pizza.meatToppings.length === 1;_
 Result: true
 
 Test: Pizza addTopping method does not add to veg if topping is meat
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _pizza.addTopping(new Topping("meat1", true));_
 _pizza.vegToppings.length === 0;_
 Result: true
 
 Test: Pizza addTopping method adds to veg if topping is not meat
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _pizza.addTopping(new Topping("veg1", false));_
 _pizza.vegToppings.length === 1;_
 Result: true
 
 Test: Pizza addTopping method does not add to meat if topping is not meat
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _pizza.addTopping(new Topping("veg1", false));_
 _pizza.meatToppings.length === 0;_
 Result: true
@@ -166,7 +178,7 @@ Result: true
 
 Test: Pizza removeTopping method does not remove topping that has not been added
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _pizza.addTopping(new Topping("meat1", true));_
 _pizza.removeTopping(new Topping("meat2", true));_
 _pizza.meatToppings.length === 1;_
@@ -174,7 +186,7 @@ Result: true
 
 Test: Pizza removeTopping method removes meat topping from meat array 
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _pizza.addTopping(new Topping("meat1", true));_
 _pizza.removeTopping(new Topping("meat1", true));_
 _pizza.meatToppings.length === 0;_
@@ -182,7 +194,7 @@ Result: true
 
 Test: Pizza removeTopping method does not remove meat topping from veg array 
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _pizza.addTopping(new Topping("veg1", false));_
 _pizza.removeTopping(new Topping("veg1", true));_
 _pizza.vegToppings.length === 1;_
@@ -190,7 +202,7 @@ Result: true
 
 Test: Pizza removeTopping method removes veg topping from veg array 
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
+_let pizza = new Pizza(Size.small, Sauce.red);_
 _pizza.addTopping(new Topping("veg1", false));_
 _pizza.removeTopping(new Topping("veg1", false));_
 _pizza.vegToppings.length === 0;_
@@ -201,9 +213,9 @@ Result: true
 
 Test: Update size of pizza
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
-_pizza.setSize(Size.medium.diameter)_
-_pizza.size === Size.medium.diameter;_
+_let pizza = new Pizza(Size.small, Sauce.red);_
+_pizza.setSize(Size.medium)_
+_pizza.size === Size.medium;_
 Result: true
 
 
@@ -211,7 +223,15 @@ Result: true
 
 Test: Update sauce of pizza
 Code: 
-_let pizza = new Pizza(Size.small.diameter, Sauce.red.color);_
-_pizza.setSacue(Sauce.white.color)_
-_pizza.sauce === Size.white.color;_
+_let pizza = new Pizza(Size.small, Sauce.red);_
+_pizza.setSacue(Sauce.white)_
+_pizza.sauce === Sauce.white;_
+Result: true
+
+# Describe: Pizza.getPrice()
+
+Test: Price of small pizza, no toppings.
+Code:
+_let pizza = new Pizza(Size.medium, Sauce.red);_
+_pizza.getSize() === 21.99;_
 Result: true
