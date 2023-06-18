@@ -11,7 +11,22 @@
 </head>
 
 <body>
-
+    <h1>Welcome to the Pizza Parlor</h1>
+    <div>
+        <h2>Specialty Pizzas</h2>
+    </div>
+    <div>
+        <h2>Build Your Own</h2>
+        <form class="hidden">
+            <h3>Select a Size</h3>
+            <select id="size" required>
+                <option value="" disabled hidden selected>Choose a Size</option>
+            </select><br>
+            <h3 id="meatToppingsHeader">Add Meat Toppings (1 free, + $2 per topping)</h3>
+            <h3 id="vegToppingsHeader">Add Vegetable Toppings (2 free, + $1 per topping)</h3>
+            <button>Add to Order</button>
+        </form>
+    </div>
 </body>
 
 </html>
