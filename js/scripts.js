@@ -1,15 +1,16 @@
 //UI Logic
-function addSizeOptions() {
-    const sizeDropDown = document.getElementById("size");
-    Object.keys(Size).forEach((element) => {
-        const size = Size[element];
+function addFormSelectOptions(objectType, selectId, objectProperty) {
+    const sizeDropDown = document.getElementById(selectId);
+    Object.keys(objectType).forEach((element, index) => {
+        const size = objectType[element];
         const option = document.createElement("option");
-        option.setAttribute("value", size.name);
-        option.innerHTML = size.name;
+        option.setAttribute("value", size[objectProperty]);
+        option.innerHTML = size[objectProperty];
         sizeDropDown.appendChild(option);
     })
 }
-function addToppingCheckboxes() {
+
+function addToppingOptions() {
     const meatToppings = document.getElementById("meatToppingsHeader");
     const vegToppings = document.getElementById("vegToppingsHeader");
     Object.keys(Topping).forEach((element) => {
@@ -34,7 +35,21 @@ function addToppingCheckboxes() {
     });
 }
 
+function handleSumbitEvent(event) {
+    event.preventDefault();
+    console.log(event.target);
+    const pizza = new Pizza()
+    event.target.reset();
+}
+
+function addEventListeners() {
+    const form = document.getElementsByTagName("form")[0];
+    form.addEventListener("submit", (event) => handleSumbitEvent(event));
+}
+
 window.onload = (event) => {
-    addSizeOptions();
-    addToppingCheckboxes();
+    addFormSelectOptions(Size, "size", "name");
+    addFormSelectOptions(Sauce, "sauce", "color");
+    addToppingOptions();
+    addEventListeners();
 }

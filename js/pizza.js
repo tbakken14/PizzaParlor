@@ -20,11 +20,12 @@ class Topping {
 }
 
 class Sauce {
-    static red = new Sauce("Red");
-    static white = new Sauce("White");
+    static red = new Sauce("Red", "Marinara");
+    static white = new Sauce("White", "Alfredo");
 
-    constructor(color) {
+    constructor(color, name) {
         this.color = color;
+        this.name = name;
     }
 }
 
