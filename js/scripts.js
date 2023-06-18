@@ -1,4 +1,14 @@
 //UI Logic
+function addSizeOptions() {
+    const sizeDropDown = document.getElementById("size");
+    Object.keys(Size).forEach((element) => {
+        const size = Size[element];
+        const option = document.createElement("option");
+        option.setAttribute("value", size.name);
+        option.innerHTML = size.name;
+        sizeDropDown.appendChild(option);
+    })
+}
 function addToppingCheckboxes() {
     const meatToppings = document.getElementById("meatToppingsHeader");
     const vegToppings = document.getElementById("vegToppingsHeader");
@@ -25,5 +35,6 @@ function addToppingCheckboxes() {
 }
 
 window.onload = (event) => {
+    addSizeOptions();
     addToppingCheckboxes();
 }
