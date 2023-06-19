@@ -10,3 +10,10 @@ form {
     border-radius: 10px;
     background-color: cornsilk;
 }
+
+.pizza {
+    display: inline-block;
+    width: 200px;
+    background-color: antiquewhite;
+    margin: 1vw;
+}

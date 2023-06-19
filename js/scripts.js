@@ -1,12 +1,12 @@
 //UI Logic
-function addFormSelectOptions(objectType, selectId, objectProperty) {
-    const sizeDropDown = document.getElementById(selectId);
-    Object.keys(objectType).forEach((element, index) => {
+function addFormSelectOptions(objectType, selector, objectProperty) {
+    let dropDown = document.querySelector(selector);
+    Object.keys(objectType).forEach((element) => {
         const size = objectType[element];
         const option = document.createElement("option");
         option.setAttribute("value", size[objectProperty]);
         option.innerHTML = size[objectProperty];
-        sizeDropDown.appendChild(option);
+        dropDown.appendChild(option);
     })
 }
 
@@ -37,26 +37,38 @@ function addToppingOptions() {
     });
 }
 
-function handleSumbitEvent(event, cart) {
+function handleCustomSubmit(event, cart) {
     event.preventDefault();
     const size = event.target.querySelector("#size option:checked").innerText;
     const sauce = event.target.querySelector("#sauce option:checked").innerText;
     const meatToppings = [...event.target.querySelectorAll("input.meat:checked")].map((e) => e.value);
     const vegToppings = [...event.target.querySelectorAll("input.veg:checked")].map((e) => e.value);
     const pizza = new Pizza(size, sauce, meatToppings, vegToppings);
-    window.cart.push(pizza);
+    addPizzaToCart(pizza);
     event.target.reset();
 }
 
 function addEventListeners() {
-    const form = document.getElementsByTagName("form")[0];
-    form.addEventListener("submit", (event) => handleSumbitEvent(event));
+    const form = document.getElementById("customPizza");
+    form.addEventListener("submit", (event) => handleCustomSubmit(event));
+}
+
+function addPizzaToCart(pizza) {
+    const cart = document.getElementById("cart");
+    const cost = document.getElementById("cost");
+    let p = document.createElement("p");
+    p.innerText = pizza.toString();
+    cart.appendChild(p);
+    console.log(parseInt(cost.innerText.slice(1)))
+    console.log()
+    cost.innerText = "$" + (parseFloat(cost.innerText.slice(1)) + parseFloat(pizza.getPrice())).toFixed(2);
 }
 
 window.onload = (event) => {
     window.cart = [];
-    addFormSelectOptions(Size, "size", "name");
-    addFormSelectOptions(Sauce, "sauce", "color");
+    addFormSelectOptions(Size, "#margForm .size", "name");
+    addFormSelectOptions(Size, "#customPizza #size", "name");
+    addFormSelectOptions(Sauce, "#customPizza #sauce", "name");
     addToppingOptions();
     addEventListeners();
 }

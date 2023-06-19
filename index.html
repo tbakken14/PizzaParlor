@@ -14,10 +14,20 @@
     <h1>Welcome to the Pizza Parlor</h1>
     <div>
         <h2>Specialty Pizzas</h2>
+        <div class="pizza">
+            <h3>Margherita</h3>
+            <form id="margForm">
+                <select class="size" required>
+                    <option value="" disabled hidden selected>Choose a Size</option>
+                </select>
+                <button>Add to Cart</button>
+            </form>
+
+        </div>
     </div>
-    <div>
+    <div class="hidden">
         <h2>Build Your Own</h2>
-        <form class="hidden">
+        <form id="customPizza">
             <h3>Select a Size</h3>
             <select id="size" required>
                 <option value="" disabled hidden selected>Choose a Size</option>
@@ -28,9 +38,16 @@
             </select><br>
             <h3 id="meatToppingsHeader">Add Meat Toppings (1 free, + $2 per topping)</h3>
             <h3 id="vegToppingsHeader">Add Vegetable Toppings (2 free, + $1 per topping)</h3>
-            <button>Add to Order</button>
+            <h3>Finalize Pizza</h3>
+            <button>Add to Cart</button>
         </form>
     </div>
+    <div>
+        <h2>Shopping Cart</h2>
+        <div id="cart">
+
+        </div>
+        <h3 id="cost">$0.00</h3>
 </body>
 
 </html>

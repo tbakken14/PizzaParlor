@@ -21,11 +21,11 @@ class Topping {
 }
 
 class Sauce {
-    static red = new Sauce("Red", "Marinara");
-    static white = new Sauce("White", "Alfredo");
+    static red = new Sauce("Marinara");
+    static white = new Sauce("White");
+    static bbq = new Sauce("Barbeque");
 
-    constructor(color, name) {
-        this.color = color;
+    constructor(name) {
         this.name = name;
     }
 }
@@ -105,11 +105,18 @@ class Pizza {
         }
         return price.toFixed(2);
     }
+
+    toString() {
+        let prefix = this.size + ", ";
+        let postfix = this.meatToppings.length + " meat and ";
+        postfix += this.vegToppings.length + " vegetable toppings";
+        return prefix + postfix;
+    }
 }
 
 function testSauce() {
-    console.log("static member", Sauce.red.color === "Red");
-    console.log("static member", Sauce.white.color === "White");
+    console.log("static member", Sauce.red.name === "Marinara");
+    console.log("static member", Sauce.white.name === "White");
 }
 
 function testSize() {
