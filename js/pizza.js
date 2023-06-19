@@ -1,3 +1,4 @@
+//Business Logic
 class Topping {
     static pepperoni = new Topping("Pepperoni", true);
     static sausage = new Topping("Sausage", true);
@@ -41,11 +42,11 @@ class Size {
 }
 
 class Pizza {
-    constructor(size, sauce) {
+    constructor(size, sauce, meatToppings, vegToppings) {
         this.size = size;
         this.sauce = sauce;
-        this.meatToppings = [];
-        this.vegToppings = [];
+        this.meatToppings = meatToppings;
+        this.vegToppings = vegToppings;
     }
 
     setSauce(sauce) {
@@ -85,22 +86,22 @@ class Pizza {
         let price = 14.99;
         //Price based on size
         switch (this.size) {
-            case Size.large:
+            case Size.large.name:
                 price += 7
-            case Size.medium:
+            case Size.medium.name:
                 price += 7
-            case Size.small:
+            case Size.small.name:
                 break;
             default:
                 price = Number.NaN;
         }
         //1 free meat toppping, $2 per extra
         if (this.meatToppings.length > 1) {
-            price += 2 * this.meatToppings.length - 1;
+            price += 2 * (this.meatToppings.length - 1);
         }
         //2 free veg toppping, $1 per extra
         if (this.vegToppings.length > 2) {
-            price += 1 * this.meatToppings.length - 2;
+            price += 1 * (this.meatToppings.length - 2);
         }
         return price.toFixed(2);
     }
@@ -126,7 +127,7 @@ function testTopping() {
 }
 
 function testPizza() {
-    let pizza = new Pizza(Size.small, Sauce.red);
+    let pizza = new Pizza(Size.small, Sauce.red, [], []);
     console.log("constructor", Object.hasOwn(pizza, "sauce"));
     console.log("constructor", Object.hasOwn(pizza, "size"));
     console.log("constructor", Object.hasOwn(pizza, "meatToppings"));

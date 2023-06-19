@@ -27,18 +27,24 @@ function addToppingOptions() {
         const br = document.createElement("br");
         label.appendChild(br)
         if (topping.isMeat) {
+            input.classList.add("meat");
             meatToppings.after(label);
         }
         else {
+            input.classList.add("veg");
             vegToppings.after(label);
         }
     });
 }
 
-function handleSumbitEvent(event) {
+function handleSumbitEvent(event, cart) {
     event.preventDefault();
-    console.log(event.target);
-    const pizza = new Pizza()
+    const size = event.target.querySelector("#size option:checked").innerText;
+    const sauce = event.target.querySelector("#sauce option:checked").innerText;
+    const meatToppings = [...event.target.querySelectorAll("input.meat:checked")].map((e) => e.value);
+    const vegToppings = [...event.target.querySelectorAll("input.veg:checked")].map((e) => e.value);
+    const pizza = new Pizza(size, sauce, meatToppings, vegToppings);
+    window.cart.push(pizza);
     event.target.reset();
 }
 
@@ -48,6 +54,7 @@ function addEventListeners() {
 }
 
 window.onload = (event) => {
+    window.cart = [];
     addFormSelectOptions(Size, "size", "name");
     addFormSelectOptions(Sauce, "sauce", "color");
     addToppingOptions();
