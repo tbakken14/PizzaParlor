@@ -7,13 +7,80 @@ form {
     display: inline-block;
     text-align: left;
     padding: 0px 20px 20px 20px;
+    border: 2px solid black;
     border-radius: 10px;
     background-color: cornsilk;
 }
 
-.pizza {
-    display: inline-block;
+.specialtyPizza {
+    text-align: center;
     width: 200px;
-    background-color: antiquewhite;
-    margin: 1vw;
+    height: 120px;
+}
+
+button {
+    margin: 10px;
+}
+
+.hidden {
+    display: None;
+}
+
+.arrow {
+    margin: 0px 1em;
+    display: inline-block;
+    border-left: 1em solid black;
+    border-top: .5em solid transparent;
+    border-bottom: .5em solid transparent;
+}
+
+h2 {
+    display: inline-block;
+}
+
+.header:hover {
+    font-size: 1.1em;
+}
+
+.section:focus .arrow {
+    transform: rotate(90deg);
+    transition: all 1s;
+}
+
+.section:focus .hidden {
+    display: inline-block;
+}
+
+.pizza {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-color: rgb(246, 231, 101);
+    border-radius: 50%;
+    border: 15px solid rgb(148, 89, 43);
+}
+
+.pizza .pepperoni.outer {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 20px dotted rgb(155, 34, 34);
+    position: relative;
+    top: 10%;
+    left: 10%;
+}
+
+.pizza .pepperoni.inner {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 20px dotted rgb(155, 34, 34);
+    position: relative;
+    top: 12.5%;
+    left: 12.5%;
+}
+
+.pizza:hover {
+    transform: rotate(360deg);
+    transition: all 10s;
 }

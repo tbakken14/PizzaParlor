@@ -11,36 +11,55 @@
 </head>
 
 <body>
-    <h1>Welcome to the Pizza Parlor</h1>
-    <div>
-        <h2>Specialty Pizzas</h2>
-        <div class="pizza">
-            <h3>Margherita</h3>
-            <form id="margForm">
-                <select class="size" required>
-                    <option value="" disabled hidden selected>Choose a Size</option>
-                </select>
-                <button>Add to Cart</button>
-            </form>
-
+    <div class="pizza">
+        <div class="pepperoni outer">
+            <div class="pepperoni inner"></div>
         </div>
     </div>
-    <div class="hidden">
-        <h2>Build Your Own</h2>
-        <form id="customPizza">
-            <h3>Select a Size</h3>
-            <select id="size" required>
-                <option value="" disabled hidden selected>Choose a Size</option>
-            </select><br>
-            <h3>Select a Sauce</h3>
-            <select id="sauce" required>
-                <option value="" disabled hidden selected>Choose a Sauce</option>
-            </select><br>
-            <h3 id="meatToppingsHeader">Add Meat Toppings (1 free, + $2 per topping)</h3>
-            <h3 id="vegToppingsHeader">Add Vegetable Toppings (2 free, + $1 per topping)</h3>
-            <h3>Finalize Pizza</h3>
-            <button>Add to Cart</button>
-        </form>
+    <h1>Welcome to the Pizza Parlor</h1>
+    <div class="section" tabindex="-1">
+        <div class="header">
+            <h2>Specialty Pizzas</h2>
+            <div class="arrow"></div>
+        </div>
+        <div class="hidden">
+            <form id="margForm" class="specialtyPizza">
+                <h3>Margherita</h3>
+                <select class="size" required>
+                    <option value="" disabled hidden selected>Choose a Size</option>
+                </select><br>
+                <button>Add to Cart</button>
+            </form>
+            <form id="bbqChickenForm" class="specialtyPizza">
+                <h3>Barbeque Chicken</h3>
+                <select class="size" required>
+                    <option value="" disabled hidden selected>Choose a Size</option>
+                </select><br>
+                <button>Add to Cart</button>
+            </form>
+        </div>
+    </div>
+    <div class="section" tabindex="-1">
+        <div class="header">
+            <h2>Build Your Own</h2>
+            <div class="arrow"></div>
+        </div>
+        <div class="hidden">
+            <form id="customPizza">
+                <h3>Select a Size</h3>
+                <select id="size" required>
+                    <option value="" disabled hidden selected>Choose a Size</option>
+                </select><br>
+                <h3>Select a Sauce</h3>
+                <select id="sauce" required>
+                    <option value="" disabled hidden selected>Choose a Sauce</option>
+                </select><br>
+                <h3 id="meatToppingsHeader">Add Meat Toppings (1 free, + $2 per topping)</h3>
+                <h3 id="vegToppingsHeader">Add Vegetable Toppings (2 free, + $1 per topping)</h3>
+                <h3>Finalize Pizza</h3>
+                <button>Add to Cart</button>
+            </form>
+        </div>
     </div>
     <div>
         <h2>Shopping Cart</h2>
