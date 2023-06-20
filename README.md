@@ -12,28 +12,25 @@
 
 ## Description
 
-_The user can create a pizza order by adding specialty and custom built pizzas to the cart. The cart updates with a description of the items and the total cost._
+_This app provides the user the ability to create a pizza order. Both specialty and custom pizzas can be added to the order. A list of pizzas in the order is provided as well as line and total costs._
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+* _Run a local or remote hosted server for this web page_
+* _Open the corresponding link in a web browser of your choosing_
 
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
+_This is a dynamic web page relying on javascript, html, and css._
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* _The rendering of pepperoni pieces on the ui pizzas have pixel blemishes depending on the viewport._
+* _Too small of a viewport will overlap pizzas and text._
 
 ## License
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+_MIT license, contact author for details/support_
 
-Copyright (c) _date_ _author name(s)_
+Copyright (c) _6/19/2023_ _Thomas Bakken(s)_
 
 
 ## Tests

@@ -114,6 +114,7 @@ class Pizza {
     }
 }
 
+//Tests
 function testSauce() {
     console.log("static member", Sauce.red.name === "Marinara");
     console.log("static member", Sauce.white.name === "White");
@@ -134,13 +135,13 @@ function testTopping() {
 }
 
 function testPizza() {
-    let pizza = new Pizza(Size.small, Sauce.red, [], []);
+    let pizza = new Pizza(Size.small.name, Sauce.red.name, [], []);
     console.log("constructor", Object.hasOwn(pizza, "sauce"));
     console.log("constructor", Object.hasOwn(pizza, "size"));
     console.log("constructor", Object.hasOwn(pizza, "meatToppings"));
     console.log("constructor", Object.hasOwn(pizza, "vegToppings"));
-    console.log("constructor", pizza.size === Size.small);
-    console.log("constructor", pizza.sauce === Sauce.red);
+    console.log("constructor", pizza.size === Size.small.name);
+    console.log("constructor", pizza.sauce === Sauce.red.name);
     console.log("constructor", pizza.vegToppings.length === 0);
     console.log("constructor", pizza.meatToppings.length === 0);
     pizza.addTopping(new Topping("meat1", true));
@@ -157,10 +158,10 @@ function testPizza() {
     console.log("remove", pizza.vegToppings.length === 1);
     pizza.removeTopping(new Topping("veg1", false));
     console.log("remove", pizza.vegToppings.length === 0);
-    pizza.setSize(Size.medium);
-    console.log("setSize", pizza.size === Size.medium);
-    pizza.setSauce(Sauce.white);
-    console.log("setSauce", pizza.sauce === Sauce.white);
+    pizza.setSize(Size.medium.name);
+    console.log("setSize", pizza.size === Size.medium.name);
+    pizza.setSauce(Sauce.white.name);
+    console.log("setSauce", pizza.sauce === Sauce.white.name);
     console.log("getPrice", pizza.getPrice() === "21.99");
 }
 
