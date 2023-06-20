@@ -101,7 +101,7 @@ class Pizza {
         }
         //2 free veg toppping, $1 per extra
         if (this.vegToppings.length > 2) {
-            price += 1 * (this.meatToppings.length - 2);
+            price += 1 * (this.vegToppings.length - 2);
         }
         return price.toFixed(2);
     }
