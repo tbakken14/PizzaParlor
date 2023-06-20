@@ -30,7 +30,7 @@ _This is a dynamic web page relying on javascript, html, and css._
 
 _MIT license, contact author for details/support_
 
-Copyright (c) _6/19/2023_ _Thomas Bakken(s)_
+Copyright (c) _6/19/2023_ _Thomas Bakken_
 
 
 ## Tests
